@@ -1,0 +1,30 @@
+name: Deploy Webhook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-webhook:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Deploy Webhook
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        IFTTT_WEBHOOK_KEY: ${{ secrets.IFTTT_WEBHOOK_KEY }}
+      run: |
+        # Create the payload for IFTTT Webhooks
+        PAYLOAD="{\"value1\": \"GitHub Commit\", \"value2\": \"A new commit has been pushed to the repository: ${{ github.repository }} by ${{ github.actor }}\"}"
+
+        # Send a POST request to the IFTTT Webhook URL
+        curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "https://maker.ifttt.com/trigger/github_commit/with/key/RtL_k_17FcupIfSl8zdB7"

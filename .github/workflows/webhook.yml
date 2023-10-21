@@ -24,7 +24,7 @@ jobs:
         IFTTT_WEBHOOK_KEY: ${{ secrets.IFTTT_WEBHOOK_KEY }}
       run: |
         # Create the payload for IFTTT Webhooks
-        PAYLOAD="{\"value1\": \"GitHub Commit\", \"value2\": \"A new commit has been pushed to the repository: ${{ github.repository }} by ${{ github.actor }}\"}"
+        PAYLOAD="{\"value1\": \"Code Change\", \"value2\": \"A new commit has been pushed to the repository: ${{ github.repository }} by ${{ github.actor }}\"}"
 
         # Send a POST request to the IFTTT Webhook URL
         curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "https://maker.ifttt.com/trigger/Code Change/json/with/key/RtL_k_17FcupIfSl8zdB7"

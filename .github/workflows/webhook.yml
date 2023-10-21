@@ -21,7 +21,7 @@ jobs:
     - name: Deploy Webhook
       env:
         #TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        IFTTT_WEBHOOK_KEY: ${{ RtL_k_17FcupIfSl8zdB7 }}
+        IFTTT_WEBHOOK_KEY: ${{ secrets.IFTTT_WEBHOOK_KEY }}
       run: |
         # Create the payload for IFTTT Webhooks
         PAYLOAD="{\"value1\": \"Code Change\", \"value2\": \"A new commit has been pushed to the repository: ${{ github.repository }} by ${{ github.actor }}\"}"

@@ -27,6 +27,6 @@ jobs:
         PAYLOAD="{\"value1\": \"Code Change\", \"value2\": \"A new commit has been pushed to the repository: ${{ github.repository }} by ${{ github.actor }}\"}"
 
         # Send a POST request to the IFTTT Webhook URL
-        curl -X POST -H "Content-Type: application/json" -d '{"this":[{"is":{"some":["test","data"]}}]}' https://maker.ifttt.com/trigger/Code-Change/json/with/key/$IFTTT_WEBHOOK_KEY
-               curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "https://maker.ifttt.com/trigger/Code-Change/json/with/key/$IFTTT_WEBHOOK_KEY"
+        #curl -X POST -H "Content-Type: application/json" -d '{"this":[{"is":{"some":["test","data"]}}]}' https://maker.ifttt.com/trigger/Code-Change/json/with/key/$IFTTT_WEBHOOK_KEY
+        curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "https://maker.ifttt.com/trigger/Code-Change/json/with/key/$IFTTT_WEBHOOK_KEY"
         
